@@ -34,7 +34,7 @@ platform :ios do
       }
     },
       output_directory: "~/Desktop",
-      output_name: "fastlane_jenkins.ipa"
+      output_name: "snowfinchApp.ipa"
     )
   end
 end
