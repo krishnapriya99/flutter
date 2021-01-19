@@ -25,7 +25,6 @@ environment {
                         stage(' Flutter Build Android'){
                         steps{
                            dir(path: 'android') {
-                            sh 'fastlane deploy'
                             sh 'flutter build apk'
                             }
                             }
