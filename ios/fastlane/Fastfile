@@ -35,7 +35,7 @@ platform :ios do
       output_directory: "~/Desktop",
       output_name: "snowfinchApp.ipa"
     )
-    uploadToTestflight(username: 'krishnapriya.radhakrishnan@ibsplc.com')
+    upload_to_testflight(username: 'krishnapriya.radhakrishnan@ibsplc.com')
   end
 
 end
