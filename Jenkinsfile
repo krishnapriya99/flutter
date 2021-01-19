@@ -16,52 +16,43 @@ environment {
 
             }
         }
-        
-        stage('Parallel Stage test') {
-            parallel {
-                stage('Android.') {
-                    agent any
-                    stages {
-                        stage(' Flutter Build Android'){
-                        steps{
-                           dir(path: 'android') {
-                            sh 'flutter build apk'
-                            }
-                            }
-                        }                         
+        stage(' Flutter Build Android'){
+                steps{
+                    dir(path: 'android') {
+                    sh 'flutter build apk'
+                    }
+                    }
+                }                         
                          
                        
-                       stage('fastlane Android build'){
-                        steps{
-                            dir(path: 'android') {
-                            sh 'fastlane deploy'
-                            }
-                            }
-                        }                         
-                    }                   
-                }
-                stage('iOS.') {
-                    agent {node 'ios'}
-                    stages {
-                        stage('Flutter Build iOS') {
-                        steps {
-                            sh 'flutter build ios  --release --no-codesign'
-                        }
+        stage('fastlane Android build'){
+                steps{
+                    dir(path: 'android') {
+                    sh 'fastlane deploy'
                     }
-                stage('fastlane build'){
-                    steps{
-                        dir(path: 'ios') {
+            }
+        } 
+        stage('Flutter Build iOS') {
+                    steps {
+                        sh 'flutter build ios  --release --no-codesign'
+             }
+        }
+         stage('fastlane build'){
+                steps{
+                    dir(path: 'ios') {
 
-                    sh 'fastlane custom_lane'
-                    }
-                    }
+                sh 'fastlane custom_lane'
                 }
-
-                       
-                        }
-                      
-                    }
+                }
+        }
+        stage('Deploy to Appstore'){
+            steps{
+                dir(path: 'ios'){
+                uploadToTestflight(username: 'krishnapriya.radhakrishnan@ibsplc.com')
                 }
             }
+        }
+
+       
         }
 }
