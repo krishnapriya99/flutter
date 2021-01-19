@@ -27,7 +27,7 @@ environment {
                             sh 'flutter build android'
                             }
                         }                         
-                    }      
+                         
                        
                        stage('fastlane Android build'){
                         steps{
