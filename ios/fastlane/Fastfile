@@ -38,6 +38,4 @@ platform :ios do
     uploadToTestflight(username: 'krishnapriya.radhakrishnan@ibsplc.com')
   end
 
- 
-  end
 end
