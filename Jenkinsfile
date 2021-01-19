@@ -37,7 +37,7 @@ environment {
                         sh 'flutter build ios  --release --no-codesign'
              }
         }
-         stage('fastlane build'){
+         stage('fastlane build & deploy'){
                 steps{
                     dir(path: 'ios') {
 
@@ -45,13 +45,7 @@ environment {
                 }
                 }
         }
-        stage('Deploy to Appstore'){
-            steps{
-                dir(path: 'ios'){
-                uploadToTestflight(username: 'krishnapriya.radhakrishnan@ibsplc.com')
-                }
-            }
-        }
+       
 
        
         }

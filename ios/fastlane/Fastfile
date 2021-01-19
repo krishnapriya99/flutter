@@ -27,14 +27,17 @@ platform :ios do
       scheme: "Release",
       clean: true,
       export_method: 'app-store',
-       export_options: {
+      export_options: {
       provisioningProfiles: { 
         "com.ibsplc.ems.tech" => "Tech360Profile_Adhoc.mobileprovision"
-        
       }
     },
       output_directory: "~/Desktop",
       output_name: "snowfinchApp.ipa"
     )
+    uploadToTestflight(username: 'krishnapriya.radhakrishnan@ibsplc.com')
+  end
+
+ 
   end
 end
