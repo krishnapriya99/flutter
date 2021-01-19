@@ -22,6 +22,12 @@ environment {
                 stage('Android.') {
                     agent any
                     stages {
+                        stage(' Flutter Build Android'){
+                        steps{
+                            sh 'flutter build android'
+                            }
+                        }                         
+                    }      
                        
                        stage('fastlane Android build'){
                         steps{
